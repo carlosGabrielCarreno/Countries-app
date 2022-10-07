@@ -17,5 +17,6 @@ export const useFetchCountryByName = (name) => {
   return {
     countryDetail,
     isLoading,
+    setIsLoading,
   };
 };

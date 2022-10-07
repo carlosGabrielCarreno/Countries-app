@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { v4 as uuidv4 } from 'uuid';
 import { options } from '../helpers';
 import { useFetchCountris } from '../hooks/useFetchCountris';
 import styled from 'styled-components';
 import { CountryCard } from './CountryCard';
 
+/*  */
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,7 +24,7 @@ const NavegationContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 90%;
+  width: 85%;
   height: 17vh;
   /* border: solid red; */
 `;
@@ -39,10 +42,11 @@ const SearchInput = styled.input`
   outline: none;
   border: 0;
   width: 100%;
+  cursor: pointer;
   /* border: solid green; */
   ::placeholder {
     padding-left: 1rem;
-    color: hsl(200, 15%, 8%);
+    color: #7b7b7b;
   }
 `;
 
@@ -51,26 +55,47 @@ const SearchIcon = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  color: #7b7b7b;
+`;
+
+const ContainerSelect = styled.div`
+  display: flex;
+  align-items: center;
+  width: 55%;
+  background-color: #fff;
+  height: 6vh;
+
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  padding-right: 1rem;
 `;
 
 const Select = styled.select`
   /* border: solid red; */
-  width: 55%;
-  height: 30%;
-  height: 6vh;
+  background-color: #fff;
+  height: 100%;
   outline: none;
   border: 0;
-  padding: 0.5rem;
-  background-color: #fff;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  appearance: none;
+  padding-left: 1rem;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  color: #7b7b7b;
+  /* font-size: 1em; */
+  position: relative;
+  transition: all 0.25s ease;
 `;
 
 const Option = styled.option`
   /* border: solid green; */
-  color: hsl(200, 15%, 8%);
+  color: #7b7b7b;
+  /* padding: 1rem; */
   outline: none;
-  border: 0;
+  border: transparent;
+  /* font-size: 1rem; */
 `;
+/*  */
 
 export const CountryList = ({ continent, setContinent }) => {
   const [search, setSearch] = useState('');
@@ -92,7 +117,10 @@ export const CountryList = ({ continent, setContinent }) => {
   return (
     <Main>
       {isLoading ? (
-        <h1>loading</h1>
+        <RestartAltIcon
+          className="animate__animated animate__rotateOut"
+          fontSize="large" /* color="disabled" */
+        />
       ) : (
         <>
           <NavegationContainer>
@@ -107,32 +135,16 @@ export const CountryList = ({ continent, setContinent }) => {
                 onChange={onChangeSearch}
               />
             </SearchContainer>
-            <Select value={continent} onChange={onChangeOption}>
-              <Option hidden selected>
-                Filter by Region
-              </Option>
-              {options.map((option) => {
-                if (option.label === 'Filter by Region') {
-                  return (
-                    <Option
-                      hidden
-                      disabled
-                      selected
-                      key={uuidv4()}
-                      value={option.value}
-                    >
-                      {option.label}
-                    </Option>
-                  );
-                } else {
-                  return (
-                    <Option key={uuidv4()} value={option.value}>
-                      {option.label}
-                    </Option>
-                  );
-                }
-              })}
-            </Select>
+            <ContainerSelect>
+              <Select value={continent} onChange={onChangeOption}>
+                {options.map((option) => (
+                  <Option key={uuidv4()} value={option.value}>
+                    {option.label}
+                  </Option>
+                ))}
+              </Select>
+              <ExpandMoreIcon />
+            </ContainerSelect>
           </NavegationContainer>
           {countries?.map((country) => (
             <CountryCard key={country.name} {...country} />

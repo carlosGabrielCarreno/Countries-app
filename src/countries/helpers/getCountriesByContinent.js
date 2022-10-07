@@ -2,7 +2,6 @@ const { REACT_APP_URL_ALL_COUNTRY } = process.env;
 
 export const getCountriesByContinent = async (continent) => {
   const validateContinent = [
-    'Filter by Region',
     'All',
     'Asia',
     'Africa',
@@ -30,7 +29,7 @@ export const getCountriesByContinent = async (continent) => {
         flag: svg,
       };
     });
-    return (continent === 'All') | (continent === 'Filter by Region')
+    return continent === 'All'
       ? newCountries
       : newCountries.filter(
           (country) => country.region.toLowerCase() === continent.toLowerCase()

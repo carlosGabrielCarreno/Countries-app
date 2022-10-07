@@ -1,6 +1,7 @@
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import styled from 'styled-components';
 
+/*  */
 const Title = styled.h1`
   font-size: 1em;
 `;
@@ -21,7 +22,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 85%;
   /* border: solid red; */
 `;
 
@@ -38,6 +39,7 @@ const Button = styled.button`
 const Paragraph = styled.p`
   font-weight: 300;
 `;
+/*  */
 
 export const NavBar = () => {
   return (

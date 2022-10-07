@@ -1,5 +1,4 @@
 export const options = [
-  { value: 'Filter by Region', label: 'Filter by Region' },
   { value: 'All', label: 'All' },
   { value: 'Africa', label: 'Africa' },
   { value: 'Asia', label: 'Asia' },
