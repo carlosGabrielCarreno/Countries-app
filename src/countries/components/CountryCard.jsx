@@ -11,6 +11,10 @@ const CardContainer = styled(Link).attrs({
   color: hsl(200, 15%, 8%);
   text-decoration: none;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  /* border: solid red; */
+  @media (min-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Img = styled.img`

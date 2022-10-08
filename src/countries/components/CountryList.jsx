@@ -28,6 +28,9 @@ let themeMode;
 /* navBar */
 const Title = styled.h1`
   font-size: 1em;
+  @media (min-width: 600px) {
+    font-size: 1.4em;
+  }
 `;
 
 const Header = styled.div.attrs({
@@ -59,7 +62,11 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 28vw;
+  width: 6.5rem;
+  /* border: solid red; */
+  @media (min-width: 400px) {
+    width: 7rem;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -72,9 +79,30 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: solid red; */
   gap: 4rem;
-  margin: 1.5rem 0 0 0;
+  /* border: solid red; */
+  /* margin: 1.5rem 0 0 0; */
+`;
+
+const ContainerCountries = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  border: solid red;
+  @media (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    width: 85%;
+  }
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    width: 85%;
+  }
 `;
 
 const NavegationContainer = styled.div`
@@ -85,6 +113,9 @@ const NavegationContainer = styled.div`
   width: 85%;
   height: 17vh;
   /* border: solid red; */
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 const SearchContainer = styled.div.attrs({
@@ -94,7 +125,14 @@ const SearchContainer = styled.div.attrs({
   /* border: solid blue; */
   width: 100%;
   height: 6vh;
+
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  @media (min-width: 600px) {
+    width: 60%;
+  }
+  @media (min-width: 800px) {
+    width: 410px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -131,6 +169,12 @@ const ContainerSelect = styled.div.attrs({
 
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   padding-right: 1rem;
+  @media (min-width: 600px) {
+    width: 30%;
+  }
+  @media (min-width: 800px) {
+    width: 192px;
+  }
 `;
 
 const Select = styled.select`
@@ -256,9 +300,11 @@ export const CountryList = ({ continent, setContinent }) => {
                   />
                 </ContainerSelect>
               </NavegationContainer>
-              {countries?.map((country) => (
-                <CountryCard key={country.name} {...country} />
-              ))}
+              <ContainerCountries>
+                {countries?.map((country) => (
+                  <CountryCard key={country.name} {...country} />
+                ))}
+              </ContainerCountries>
             </>
           )}
         </Main>
