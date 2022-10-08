@@ -18,6 +18,7 @@ const CountryDetailContainer = styled.div.attrs({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /*  */
   /* border: solid red; */
   width: 85vw;
   margin: 1.5rem auto;
@@ -51,19 +52,29 @@ const Button = styled.button.attrs({
 const DetailContainer = styled.div.attrs({
   className: 'animate__animated animate__fadeIn',
 })`
-  /* border: solid red; */
+  border: solid red;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  @media (min-width: 800px) {
+    display: flex;
+  }
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 30%;
+  @media (min-width: 800px) {
+    width: 50%;
+    height: 100%;
+  }
 `;
 
 const DataContainer = styled.div`
-  /* border: solid red; */
+  border: solid red;
+  @media (min-width: 800px) {
+    display: inline-flex;
+  }
 `;
 
 const RawData = styled.div`

@@ -63,6 +63,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-between;
   width: 6.5rem;
+  cursor: pointer;
   /* border: solid red; */
   @media (min-width: 400px) {
     width: 7rem;
@@ -90,16 +91,29 @@ const ContainerCountries = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  border: solid red;
+  /* margin-bottom: 1rem; */
+  /* border: solid red; */
   @media (min-width: 500px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-gap: 1.5rem;
     width: 85%;
   }
   @media (min-width: 700px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    width: 85%;
+  }
+  @media (min-width: 800px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    width: 85%;
+  }
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2rem;
     width: 85%;
   }
@@ -204,6 +218,10 @@ const Option = styled.option.attrs({
   border: transparent;
   /* font-size: 1rem; */
 `;
+
+const FouterBounce = styled.h5`
+  padding: 1rem;
+`;
 /*  */
 
 export const CountryList = ({ continent, setContinent }) => {
@@ -307,6 +325,7 @@ export const CountryList = ({ continent, setContinent }) => {
               </ContainerCountries>
             </>
           )}
+          <h5>Created by very much love ❣️</h5>
         </Main>
       </>
     </ThemeProvider>

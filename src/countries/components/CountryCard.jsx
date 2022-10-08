@@ -12,8 +12,19 @@ const CardContainer = styled(Link).attrs({
   text-decoration: none;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   /* border: solid red; */
+  @media (min-width: 500px) {
+    width: 100%;
+  }
   @media (min-width: 600px) {
     width: 100%;
+  }
+  @media (min-width: 800px) {
+    display: grid;
+    width: 100%;
+  }
+  @media (min-width: 1000px) {
+    width: 100%;
+    /* overflow: hidden; */
   }
 `;
 
@@ -24,14 +35,17 @@ const Img = styled.img`
 const DataContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
+  align-items: center;
+  margin: 0 0.2rem;
 `;
 
 const CountryName = styled.h2`
-  margin: 10px 0;
+  margin: 0.2rem 0 0 0.2rem;
 `;
 
 const CountryData = styled.h3`
+  /* border: solid red; */
   margin: 0.2rem 0;
   font-weight: 600;
 `;
@@ -49,8 +63,8 @@ export const CountryCard = (props) => {
     <CardContainer to={`/country/${name}`}>
       <Img src={flag} alt={name} width="150" />
 
+      <CountryName>{name}</CountryName>
       <DataContainer>
-        <CountryName>{name}</CountryName>
         <CountryData>
           Population: <SpanText>{population}</SpanText>
         </CountryData>

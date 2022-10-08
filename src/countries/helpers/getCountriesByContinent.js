@@ -23,7 +23,9 @@ export const getCountriesByContinent = async (continent) => {
       } = country;
       return {
         name: common,
-        capital: country.capital?.join(' '),
+        capital: country.capital
+          ? country.capital.join(' ')
+          : 'capital not found',
         region: country.region,
         population: country.population,
         flag: svg,
