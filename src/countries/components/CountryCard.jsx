@@ -34,7 +34,7 @@ const CountryData = styled.h3`
 
 const SpanText = styled.span`
   font-weight: 300;
-  color: #7b7b7b;
+  /* color: #7b7b7b; */
 `;
 /*  */
 

@@ -4,7 +4,11 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useFetchCountryByName } from '../hooks/useFetchCountryByName';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useDarkMode } from '../hooks/useDarkMode';
+/*  */
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../../GlobalStyles';
+import { darkTheme, lightTheme } from '../../Themes';
 
 //
 const CountryDetailContainer = styled.div.attrs({
@@ -27,7 +31,9 @@ const ButtonsContainer = styled.div`
   height: 6vh;
 `;
 
-const Button = styled.button`
+const Button = styled.button.attrs({
+  className: 'button',
+})`
   width: 25%;
   height: 100%;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
@@ -39,6 +45,7 @@ const Button = styled.button`
   justify-content: space-around;
   align-items: center;
   font-weight: 300;
+  cursor: pointer;
 `;
 
 const DetailContainer = styled.div.attrs({
@@ -86,7 +93,9 @@ const ContainerBordersButtons = styled.div`
   flex-wrap: nowrap;
 `;
 
-const ButtonBorder = styled(Link)`
+const ButtonBorder = styled(Link).attrs({
+  className: 'buttonBorder',
+})`
   outline: none;
   background-color: #fff;
   text-decoration: none;
@@ -105,6 +114,8 @@ const ButtonBorder = styled(Link)`
 export const CountryPage = () => {
   const navigate = useNavigate();
   const { name } = useParams();
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const { countryDetail, isLoading, setIsLoading } =
     useFetchCountryByName(name);
@@ -123,83 +134,97 @@ export const CountryPage = () => {
   };
 
   return (
-    <CountryDetailContainer>
-      {isLoading ? (
-        <RestartAltIcon
-          className="animate__animated animate__rotateOut"
-          fontSize="large" /* color="disabled" */
-        />
-      ) : (
-        <>
-          <ButtonsContainer>
-            <Button onClick={onNavigateBack}>
-              <KeyboardBackspaceIcon fontSize="small" /> Back
-            </Button>
-
-            <Button onClick={onNavigateHome}>
-              <HomeIcon fontSize="small" /> Home
-            </Button>
-          </ButtonsContainer>
-          <DetailContainer>
-            <Img
-              src={countryDetail.flag}
-              alt={countryDetail.name}
-              width="400"
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <CountryDetailContainer>
+          {isLoading ? (
+            <RestartAltIcon
+              className="animate__animated animate__rotateOut"
+              fontSize="large" /* color="disabled" */
             />
-            <h1>{countryDetail.name}</h1>
-            <DataContainer>
-              <RawData>
-                <Paragraph>
-                  NativeName: <Text> {countryDetail.nativeName}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Population: <Text> {countryDetail.population}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Region: <Text> {countryDetail.region}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Subregion: <Text> {countryDetail.subregion}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Capital: <Text> {countryDetail.capital}</Text>
-                </Paragraph>
-              </RawData>
-              <RawData>
-                <Paragraph>
-                  TopLevelDomain: <Text> {countryDetail.topLevelDomain}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Currencies: <Text> {countryDetail.currencies}</Text>
-                </Paragraph>
-                <Paragraph>
-                  Languages: <Text> {countryDetail.languages}</Text>
-                </Paragraph>
-              </RawData>
-              <RawData>
-                {!countryDetail.borders ? (
-                  <BorderTitle>Not Borders</BorderTitle>
-                ) : (
-                  <>
-                    <BorderTitle>Border Countries</BorderTitle>
-                    <ContainerBordersButtons>
-                      {countryDetail.borders?.map((borde, i) => (
-                        <ButtonBorder
-                          onClick={() => setIsLoading(true)}
-                          to={`/country/${borde.toLowerCase()}`}
-                          key={borde + i}
-                        >
-                          {borde}
-                        </ButtonBorder>
-                      ))}
-                    </ContainerBordersButtons>
-                  </>
-                )}
-              </RawData>
-            </DataContainer>
-          </DetailContainer>
-        </>
-      )}
-    </CountryDetailContainer>
+          ) : (
+            <>
+              <ButtonsContainer>
+                <Button onClick={onNavigateBack}>
+                  <KeyboardBackspaceIcon
+                    color={`${theme !== 'light' ? 'primary' : 'disabled'}`}
+                    fontSize="small"
+                  />{' '}
+                  Back
+                </Button>
+
+                <Button onClick={onNavigateHome}>
+                  <HomeIcon
+                    fontSize="small"
+                    color={`${theme !== 'light' ? 'primary' : 'disabled'}`}
+                  />
+                  Home
+                </Button>
+              </ButtonsContainer>
+              <DetailContainer>
+                <Img
+                  src={countryDetail.flag}
+                  alt={countryDetail.name}
+                  width="400"
+                />
+                <h1>{countryDetail.name}</h1>
+                <DataContainer>
+                  <RawData>
+                    <Paragraph>
+                      NativeName: <Text> {countryDetail.nativeName}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Population: <Text> {countryDetail.population}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Region: <Text> {countryDetail.region}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Subregion: <Text> {countryDetail.subregion}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Capital: <Text> {countryDetail.capital}</Text>
+                    </Paragraph>
+                  </RawData>
+                  <RawData>
+                    <Paragraph>
+                      TopLevelDomain:{' '}
+                      <Text> {countryDetail.topLevelDomain}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Currencies: <Text> {countryDetail.currencies}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Languages: <Text> {countryDetail.languages}</Text>
+                    </Paragraph>
+                  </RawData>
+                  <RawData>
+                    {!countryDetail.borders ? (
+                      <BorderTitle>Not Borders</BorderTitle>
+                    ) : (
+                      <>
+                        <BorderTitle>Border Countries</BorderTitle>
+                        <ContainerBordersButtons>
+                          {countryDetail.borders?.map((borde, i) => (
+                            <ButtonBorder
+                              onClick={() => setIsLoading(true)}
+                              to={`/country/${borde.toLowerCase()}`}
+                              key={borde + i}
+                            >
+                              {borde}
+                            </ButtonBorder>
+                          ))}
+                        </ContainerBordersButtons>
+                      </>
+                    )}
+                  </RawData>
+                </DataContainer>
+              </DetailContainer>
+            </>
+          )}
+        </CountryDetailContainer>
+      </>
+    </ThemeProvider>
   );
 };
