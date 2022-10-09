@@ -19,6 +19,7 @@ import {
 } from '../../Themes';
 /*  */
 import { useDarkMode } from '../hooks/useDarkMode';
+import { RestartAltIconContainer } from './RestartAltIconContainer';
 //import Toggle from '../../Toggler';
 
 /*  */
@@ -263,10 +264,7 @@ export const CountryList = ({ continent, setContinent }) => {
         <GlobalStyles />
         <Main>
           {isLoading ? (
-            <RestartAltIcon
-              className="animate__animated animate__rotateOut"
-              fontSize="large" /* color="disabled" */
-            />
+            <RestartAltIconContainer />
           ) : (
             <>
               <Header>

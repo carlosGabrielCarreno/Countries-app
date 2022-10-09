@@ -13,8 +13,7 @@ import { darkTheme, lightTheme } from '../../Themes';
 /*  */
 import countryPage from '../styled/CountryPage';
 /*  */
-//#####
-// //
+
 // const CountryDetailContainer = styled.div.attrs({
 //   className: 'animate__animated animate__pulse',
 // })`
@@ -127,6 +126,15 @@ import countryPage from '../styled/CountryPage';
 // //
 //###
 
+const TitleName = styled.h1`
+  border: solid purple;
+  grid-area: area1;
+  @media (min-width: 800px) {
+    width: 100%;
+    height: 8vh;
+  }
+`;
+
 export const CountryPage = () => {
   const navigate = useNavigate();
   const { name } = useParams();
@@ -187,8 +195,8 @@ export const CountryPage = () => {
                 />
                 {/* </CountryPage.ContainerImg> */}
                 <countryPage.DataContainer>
-                  <h1>{countryDetail.name}</h1>
-                  <countryPage.RawData>
+                  <TitleName>{countryDetail.name}</TitleName>
+                  <countryPage.RawData1>
                     <countryPage.Paragraph>
                       NativeName:{' '}
                       <countryPage.Text>
@@ -224,8 +232,8 @@ export const CountryPage = () => {
                         {countryDetail.capital}
                       </countryPage.Text>
                     </countryPage.Paragraph>
-                  </countryPage.RawData>
-                  <countryPage.RawData>
+                  </countryPage.RawData1>
+                  <countryPage.RawData2>
                     <countryPage.Paragraph>
                       TopLevelDomain:{' '}
                       <countryPage.Text>
@@ -247,8 +255,8 @@ export const CountryPage = () => {
                         {countryDetail.languages}
                       </countryPage.Text>
                     </countryPage.Paragraph>
-                  </countryPage.RawData>
-                  <countryPage.RawData>
+                  </countryPage.RawData2>
+                  <countryPage.RawData3>
                     {!countryDetail.borders ? (
                       <countryPage.BorderTitle>
                         Not Borders
@@ -271,7 +279,7 @@ export const CountryPage = () => {
                         </countryPage.ContainerBordersButtons>
                       </>
                     )}
-                  </countryPage.RawData>
+                  </countryPage.RawData3>
                 </countryPage.DataContainer>
               </countryPage.DetailContainer>
             </>

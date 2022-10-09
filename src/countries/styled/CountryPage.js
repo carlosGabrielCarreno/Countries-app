@@ -49,14 +49,14 @@ const DetailContainer = styled.div.attrs({
     display: flex;
     align-items: flex-start;
     gap: 3rem;
-    border: solid green;
-    /* height: 45vh; */
+    height: 41vh;
   }
 `;
 
 const Img = styled.img`
   width: 100%;
   height: 30%;
+  /* display: none; */
   @media (min-width: 800px) {
     width: 50%;
     height: 100%;
@@ -66,21 +66,63 @@ const Img = styled.img`
 const DataContainer = styled.div`
   /* border: solid red; */
   @media (min-width: 800px) {
+    width: 100%;
     display: grid;
-    grid-template-columns: 21rem;
-    grid-template-rows: 2rem 13rem 7rem;
-    border: solid pink;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 150px 50px;
+    grid-gap: 2rem;
+    grid-template-areas:
+      'area1  area1 area1'
+      'area2 . area3'
+      'area4 area4 area4';
+    border: solid greenyellow;
+    height: 100%;
   }
 `;
 
-const RawData = styled.div`
+const RawData1 = styled.div`
   height: 100%;
   /* border: solid green; */
   margin: 1.5rem 0;
   @media (min-width: 800px) {
-    display: flex;
-    flex-direction: column;
+    /*  display: flex;
+    flex-direction: column; */
+    border: solid orange;
+    grid-area: area2;
+    overflow: hidden;
+    height: 30vh;
+    width: 100vw;
+    margin: 0;
+  }
+`;
+const RawData2 = styled.div`
+  height: 100%;
+  /* border: solid green; */
+  margin: 1.5rem 0;
+  @media (min-width: 800px) {
+    /* display: flex;
+    flex-direction: column; */
+    border: solid blue;
+    grid-area: area3;
+
+    height: 30vh;
+    width: 68vw;
+    margin: 0;
+  }
+`;
+
+const RawData3 = styled.div`
+  height: 100%;
+  /* border: solid green; */
+  margin: 1.5rem 0;
+  @media (min-width: 800px) {
+    /* display: flex;
+    flex-direction: column; */
+    margin: 1rem;
+    border: solid violet;
+    grid-area: area4;
     height: 80vh;
+    margin: 0;
   }
 `;
 
@@ -88,6 +130,10 @@ const Paragraph = styled.p`
   font-weight: 600;
   padding: 0.3rem 0;
 `;
+/* const H1 = styled.h1`
+  border: solid yellow;
+  grid-area: 'area1';
+`; */
 
 const Text = styled.span`
   font-weight: 300;
@@ -129,7 +175,9 @@ const countryPage = {
   DetailContainer,
   Img,
   DataContainer,
-  RawData,
+  RawData1,
+  RawData2,
+  RawData3,
   Paragraph,
   Text,
   BorderTitle,
