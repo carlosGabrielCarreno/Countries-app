@@ -1,32 +1,17 @@
 import { useEffect, useState } from 'react';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { v4 as uuidv4 } from 'uuid';
 import { options } from '../helpers';
 import { useFetchCountris } from '../hooks/useFetchCountris';
 import styled from 'styled-components';
-import { CountryCard } from './CountryCard';
-/*  */
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../../GlobalStyles';
-import {
-  lightTheme,
-  darkTheme,
-  segundoBakcgroundDark,
-  segundoBakcgroundLight,
-} from '../../Themes';
-/*  */
+import { lightTheme, darkTheme } from '../../Themes';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { RestartAltIconContainer } from './RestartAltIconContainer';
-//import Toggle from '../../Toggler';
+import { CountriesList, SearchContainerIcon, ButtonDarkMode } from './index';
 
-/*  */
-let themeMode;
-/*  */
-
-/* navBar */
+//navbar
 const Title = styled.h1`
   font-size: 1em;
   @media (min-width: 600px) {
@@ -56,25 +41,6 @@ const HeaderContainer = styled.div`
   /* border: solid red; */
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: 0;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 6.5rem;
-  cursor: pointer;
-  /* border: solid red; */
-  @media (min-width: 400px) {
-    width: 7rem;
-  }
-`;
-
-const Paragraph = styled.p`
-  font-weight: 300;
-`;
-
 /*  */
 const Main = styled.div`
   display: flex;
@@ -84,40 +50,6 @@ const Main = styled.div`
   gap: 4rem;
   /* border: solid red; */
   /* margin: 1.5rem 0 0 0; */
-`;
-
-const ContainerCountries = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  /* margin-bottom: 1rem; */
-  /* border: solid red; */
-  @media (min-width: 500px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1.5rem;
-    width: 85%;
-  }
-  @media (min-width: 700px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2rem;
-    width: 85%;
-  }
-  @media (min-width: 800px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2rem;
-    width: 85%;
-  }
-  @media (min-width: 1000px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
-    width: 85%;
-  }
 `;
 
 const NavegationContainer = styled.div`
@@ -160,17 +92,6 @@ const SearchInput = styled.input`
     padding-left: 1rem;
     /* color: #7b7b7b; */
   }
-`;
-
-const SearchIcon = styled.div.attrs({
-  className: 'searchIcon',
-})`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-  /* color: #7b7b7b; */
-  /* border: solid red; */
 `;
 
 const ContainerSelect = styled.div.attrs({
@@ -223,22 +144,15 @@ const Option = styled.option.attrs({
 const FouterBounce = styled.h5`
   padding: 1rem;
 `;
-/*  */
+// #############
 
 export const CountryList = ({ continent, setContinent }) => {
   const [search, setSearch] = useState('');
-  const [isDark, setIsDark] = useState(false);
   const { countries, isLoading, searchFilters } = useFetchCountris(continent);
-  /*  */
-  /*   const [theme, setTheme] = useState('light');
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  }; */
-  /*  */
 
   const [theme, themeToggler, mountedComponent] = useDarkMode();
 
-  themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const onChangeSearch = (event) => {
     setSearch(event.target.value);
@@ -252,10 +166,6 @@ export const CountryList = ({ continent, setContinent }) => {
   useEffect(() => {
     searchFilters(search, continent);
   }, [search]);
-
-  const onDarkAnimation = () => {
-    setIsDark((oldIsDark) => !oldIsDark);
-  };
 
   if (!mountedComponent) return <div />;
   return (
@@ -271,31 +181,13 @@ export const CountryList = ({ continent, setContinent }) => {
                 <HeaderContainer>
                   <Title>Where in the world?</Title>
                   <div onClick={themeToggler}>
-                    <Button /* onClick={themeToggler} */>
-                      <div
-                        className={`${
-                          isDark ? 'animate__animated animate__rotateIn' : ''
-                        }`}
-                        onClick={onDarkAnimation}
-                      >
-                        <DarkModeOutlinedIcon
-                          color={`${
-                            theme !== 'light' ? 'primary' : 'disabled'
-                          }`}
-                        />
-                      </div>
-                      <Paragraph>Dark Mode</Paragraph>
-                    </Button>
+                    <ButtonDarkMode theme={theme} />
                   </div>
                 </HeaderContainer>
               </Header>
               <NavegationContainer>
                 <SearchContainer>
-                  <SearchIcon>
-                    <SearchTwoToneIcon
-                      color={`${theme !== 'light' ? 'primary' : 'disabled'}`}
-                    />
-                  </SearchIcon>
+                  <SearchContainerIcon theme={theme} />
                   <SearchInput
                     type="text"
                     placeholder="Search for a country..."
@@ -316,14 +208,10 @@ export const CountryList = ({ continent, setContinent }) => {
                   />
                 </ContainerSelect>
               </NavegationContainer>
-              <ContainerCountries>
-                {countries?.map((country) => (
-                  <CountryCard key={country.name} {...country} />
-                ))}
-              </ContainerCountries>
+              <CountriesList countries={countries} />
             </>
           )}
-          <h5>Created by very much love ❣️</h5>
+          <h5>Created with very much love ❣️</h5>
         </Main>
       </>
     </ThemeProvider>

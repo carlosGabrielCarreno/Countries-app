@@ -1,9 +1,10 @@
-import countryPage from '../../styled/CountryPage';
+import { stylesButtonDetailPage } from './stylesButtonDetailPage';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import HomeIcon from '@mui/icons-material/Home';
+/* styles */
+const { Button } = stylesButtonDetailPage;
 
 export const ButtonDetailPage = ({ onNavigate, theme, name }) => {
-  const { Button } = countryPage;
   return (
     <Button onClick={onNavigate}>
       {name === 'Back' ? (
