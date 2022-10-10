@@ -17,7 +17,7 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-[url](https://countri-app-react-js.netlify.app/countries)
+[url](https://countri-app-react-js.netlify.app)
 
 ### `npm run build`
 
