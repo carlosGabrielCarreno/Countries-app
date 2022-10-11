@@ -12,13 +12,37 @@ import { darkTheme, lightTheme } from '../../Themes';
 import countryPage from '../styled/CountryPage';
 import { ButtonDetailPage } from '../components';
 /*  */
+const {
+  CountryDetailContainer,
+  ButtonsContainer,
+  DetailContainer,
+  Img,
+  DataContainer,
+  RawData1,
+  RawData2,
+  RawData3,
+  Paragraph,
+  Text,
+  BorderTitle,
+  ContainerBordersButtons,
+  ButtonBorder,
+} = countryPage;
+
+/*  */
 
 const TitleName = styled.h1`
   /* border: solid purple; */
   grid-area: area1;
+  font-size: 2.6rem;
+
   @media (min-width: 800px) {
+    margin: 0;
+    font-size: 2rem;
+  }
+  @media (min-width: 1000px) {
     width: 100%;
-    height: 8vh;
+    /* font-size: 2rem; */
+    margin: 0 0 1rem 0;
   }
 `;
 
@@ -48,7 +72,7 @@ export const CountryPage = () => {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        <countryPage.CountryDetailContainer>
+        <CountryDetailContainer>
           {isLoading ? (
             <RestartAltIcon
               className="animate__animated animate__rotateOut"
@@ -56,7 +80,7 @@ export const CountryPage = () => {
             />
           ) : (
             <>
-              <countryPage.ButtonsContainer>
+              <ButtonsContainer>
                 <ButtonDetailPage
                   onNavigate={onNavigateBack}
                   theme={theme}
@@ -67,106 +91,71 @@ export const CountryPage = () => {
                   theme={theme}
                   name={'Home'}
                 />
-              </countryPage.ButtonsContainer>
-              <countryPage.DetailContainer>
-                {/* <CountryPage.ContainerImg> */}
-                <countryPage.Img
+              </ButtonsContainer>
+              <DetailContainer>
+                {/* <ContainerImg> */}
+                <Img
                   src={countryDetail.flag}
                   alt={countryDetail.name}
                   width="400"
                 />
-                {/* </CountryPage.ContainerImg> */}
-                <countryPage.DataContainer>
+                {/* </ContainerImg> */}
+                <DataContainer>
                   <TitleName>{countryDetail.name}</TitleName>
-                  <countryPage.RawData1>
-                    <countryPage.Paragraph>
-                      NativeName:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.nativeName}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Population:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.population}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Region:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.region}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Subregion:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.subregion}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Capital:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.capital}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                  </countryPage.RawData1>
-                  <countryPage.RawData2>
-                    <countryPage.Paragraph>
+                  <RawData1>
+                    <Paragraph>
+                      NativeName: <Text> {countryDetail.nativeName}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Population: <Text> {countryDetail.population}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Region: <Text> {countryDetail.region}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Subregion: <Text> {countryDetail.subregion}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Capital: <Text> {countryDetail.capital}</Text>
+                    </Paragraph>
+                  </RawData1>
+                  <RawData2>
+                    <Paragraph>
                       TopLevelDomain:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.topLevelDomain}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Currencies:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.currencies}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                    <countryPage.Paragraph>
-                      Languages:{' '}
-                      <countryPage.Text>
-                        {' '}
-                        {countryDetail.languages}
-                      </countryPage.Text>
-                    </countryPage.Paragraph>
-                  </countryPage.RawData2>
-                  <countryPage.RawData3>
+                      <Text> {countryDetail.topLevelDomain}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Currencies: <Text> {countryDetail.currencies}</Text>
+                    </Paragraph>
+                    <Paragraph>
+                      Languages: <Text> {countryDetail.languages}</Text>
+                    </Paragraph>
+                  </RawData2>
+                  <RawData3>
                     {!countryDetail.borders ? (
-                      <countryPage.BorderTitle>
-                        Not Borders
-                      </countryPage.BorderTitle>
+                      <BorderTitle>Not Borders</BorderTitle>
                     ) : (
                       <>
-                        <countryPage.BorderTitle>
-                          Border Countries
-                        </countryPage.BorderTitle>
-                        <countryPage.ContainerBordersButtons>
+                        <BorderTitle>Borders</BorderTitle>
+                        <ContainerBordersButtons>
                           {countryDetail.borders?.map((borde, i) => (
-                            <countryPage.ButtonBorder
+                            <ButtonBorder
                               onClick={() => setIsLoading(true)}
                               to={`/country/${borde.toLowerCase()}`}
                               key={borde + i}
                             >
                               {borde}
-                            </countryPage.ButtonBorder>
+                            </ButtonBorder>
                           ))}
-                        </countryPage.ContainerBordersButtons>
+                        </ContainerBordersButtons>
                       </>
                     )}
-                  </countryPage.RawData3>
-                </countryPage.DataContainer>
-              </countryPage.DetailContainer>
+                  </RawData3>
+                </DataContainer>
+              </DetailContainer>
             </>
           )}
-        </countryPage.CountryDetailContainer>
+        </CountryDetailContainer>
       </>
     </ThemeProvider>
   );
