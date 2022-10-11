@@ -28,10 +28,7 @@ const {
   ButtonBorder,
 } = countryPage;
 
-/*  */
-
 const TitleName = styled.h1`
-  /* border: solid purple; */
   grid-area: area1;
   font-size: 2.6rem;
 
@@ -41,8 +38,8 @@ const TitleName = styled.h1`
   }
   @media (min-width: 1000px) {
     width: 100%;
-    /* font-size: 2rem; */
-    margin: 0 0 1rem 0;
+    margin: 0;
+    font-size: 1.9rem;
   }
 `;
 
