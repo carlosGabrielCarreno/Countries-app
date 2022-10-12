@@ -22,7 +22,6 @@ export const ButtonDetailPage = ({ onNavigate, theme, name }) => {
           />
         </>
       )}
-      {name}
     </Button>
   );
 };

@@ -29,8 +29,8 @@ const DetailContainer = styled.div.attrs({
   @media (min-width: 800px) {
     display: flex;
     align-items: flex-start;
-    gap: 3rem;
-    height: 60vh;
+    gap: 5rem;
+    height: 80vh;
   }
 `;
 
@@ -39,12 +39,12 @@ const Img = styled.img`
   height: 30%;
 
   @media (min-width: 800px) {
-    width: 415px;
-    height: 60%;
+    width: 420px;
+    height: 45%;
   }
   @media (min-width: 1000px) {
     width: 50%;
-    height: 60%;
+    height: 50%;
   }
 `;
 
@@ -64,7 +64,6 @@ const DataContainer = styled.div`
       'area1  area1 area1'
       'area2  . area3'
       'area4 area4 area4';
-    border: solid greenyellow;
     height: 100%;
   }
 `;
@@ -96,6 +95,7 @@ const RawData2 = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0;
+    height: 6%;
   }
   @media (min-width: 1000px) {
     display: flex;
@@ -115,13 +115,12 @@ const RawData3 = styled.div`
     height: 100vh;
     width: 100%;
     width: 30vw;
-    margin: 0;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
   @media (min-width: 1000px) {
-    border: solid violet;
     grid-area: area4;
     margin: 1rem 0 0 0;
     display: flex;
@@ -151,7 +150,6 @@ const BorderTitle = styled.h3`
     display: flex;
     margin: 0 0 0.3rem 0;
     text-align: center;
-    border: solid green;
   }
 `;
 
@@ -162,14 +160,14 @@ const ContainerBordersButtons = styled.div`
   flex-wrap: wrap;
   @media (min-width: 800px) {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
+    height: 50%;
   }
   @media (min-width: 1000px) {
-    overflow-wrap: break-word;
-    width: 50%;
-    border: solid gray;
-    height: 50%;
+    height: 100%;
+    width: 40%;
   }
 `;
 
@@ -188,8 +186,13 @@ const ButtonBorder = styled(Link).attrs({
   border: 0;
   text-align: center;
   height: 2rem;
+  @media (min-width: 800px) {
+    margin: 0.5rem;
+    padding: 0.2rem;
+    height: 1.8rem;
+  }
   @media (min-width: 1000px) {
-    margin: 0 1rem;
+    margin: 0 0.5rem 0;
   }
 `;
 

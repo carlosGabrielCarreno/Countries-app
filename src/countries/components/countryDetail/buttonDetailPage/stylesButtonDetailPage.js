@@ -5,6 +5,7 @@ const Button = styled.button.attrs({
 })`
   width: 25%;
   height: 100%;
+  max-width: 110px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   outline: none;
   background-color: #fff;

@@ -7,7 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: all 0.50s linear;
-
   }
   select{
     background: ${({ theme }) => theme.body};
@@ -31,24 +30,12 @@ export const GlobalStyles = createGlobalStyle`
   .option {
     color: ${({ theme }) => theme.text};
   }
- 
-
-/*   .searchIcon {
-    color: ${({ theme }) => theme.text};
-  } */
 
   .header {
     background: ${({ theme }) => theme.body};
     
   } 
-
-
-
   span,  h2, h3, p, select {
     color: ${({ theme }) => theme.text};
-
   }
-
-   
-
   `;

@@ -21,6 +21,7 @@ export const getCountriesByContinent = async (continent) => {
         name: { common },
         flags: { svg },
       } = country;
+
       return {
         name: common,
         capital: country.capital

@@ -39,7 +39,7 @@ const TitleName = styled.h1`
   @media (min-width: 1000px) {
     width: 100%;
     margin: 0;
-    font-size: 1.9rem;
+    /* font-size: 1.9rem; */
   }
 `;
 
@@ -133,7 +133,7 @@ export const CountryPage = () => {
                       <BorderTitle>Not Borders</BorderTitle>
                     ) : (
                       <>
-                        <BorderTitle>Borders</BorderTitle>
+                        <BorderTitle>Borders:</BorderTitle>
                         <ContainerBordersButtons>
                           {countryDetail.borders?.map((borde, i) => (
                             <ButtonBorder

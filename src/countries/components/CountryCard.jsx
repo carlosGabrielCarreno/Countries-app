@@ -11,7 +11,11 @@ const CardContainer = styled(Link).attrs({
   color: hsl(200, 15%, 8%);
   text-decoration: none;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  /* border: solid red; */
+  transition: all 300ms;
+  position: relative;
+  :hover {
+    transform: scale(1.15);
+  }
   @media (min-width: 500px) {
     width: 100%;
   }
@@ -24,7 +28,6 @@ const CardContainer = styled(Link).attrs({
   }
   @media (min-width: 1000px) {
     width: 100%;
-    /* overflow: hidden; */
   }
 `;
 
@@ -35,7 +38,6 @@ const Img = styled.img`
 const DataContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  /* padding: 0.5rem; */
   align-items: center;
   margin: 0 0.2rem;
 `;
@@ -52,9 +54,8 @@ const CountryData = styled.h3`
 
 const SpanText = styled.span`
   font-weight: 300;
-  /* color: #7b7b7b; */
+  font-size: 0.9rem;
 `;
-/*  */
 
 export const CountryCard = (props) => {
   const { name, capital, region, population, flag } = props;
