@@ -1,20 +1,20 @@
-export const primerBakcgroundDark = '#202c37';
-export const segundoBakcgroundDark = '#2b3945';
+export const firstBakcgroundDark = '#202c37';
+export const secondaryBakcgroundDark = '#2b3945';
 
-export const primerBakcgroundLight = '#fafafa';
-export const segundoBakcgroundLight = '#ffffff';
+export const firstBakcgroundLight = '#fafafa';
+export const secondaryBakcgroundLight = '#ffffff';
 
 export const lightTheme = {
-  body: segundoBakcgroundLight,
+  body: secondaryBakcgroundLight,
   text: '#434343',
   textSecundary: '#7b7b7b',
   toggleBorder: '#FFF',
-  background: primerBakcgroundLight,
+  background: firstBakcgroundLight,
 };
 export const darkTheme = {
-  body: segundoBakcgroundDark,
+  body: secondaryBakcgroundDark,
   text: '#fff',
   textSecundary: '#7b7b7b',
   toggleBorder: '#6B8096',
-  background: primerBakcgroundDark,
+  background: firstBakcgroundDark,
 };
