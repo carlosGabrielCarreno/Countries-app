@@ -10,15 +10,12 @@ const Title = styled.h1`
 const Header = styled.div.attrs({
   className: 'header',
 })`
-  /* padding: 0.2rem; */
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 10vh;
-  /* border: solid green; */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #fff; */
 `;
 
 const HeaderContainer = styled.div`
@@ -26,7 +23,6 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 85%;
-  /* border: solid red; */
 `;
 
 const Button = styled.button`
@@ -38,7 +34,6 @@ const Button = styled.button`
   justify-content: space-between;
   width: 6.5rem;
   cursor: pointer;
-  /* border: solid red; */
   @media (min-width: 400px) {
     width: 7rem;
   }
