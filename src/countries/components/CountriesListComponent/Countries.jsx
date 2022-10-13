@@ -1,55 +1,27 @@
 import { useEffect, useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { v4 as uuidv4 } from 'uuid';
-import { options } from '../helpers';
-import { useFetchCountris } from '../hooks/useFetchCountris';
+import { options } from '../../helpers';
+import { useFetchCountris } from '../../hooks/useFetchCountris';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from '../../GlobalStyles';
-import { lightTheme, darkTheme } from '../../Themes';
-import { useDarkMode } from '../hooks/useDarkMode';
-import { RestartAltIconContainer } from './RestartAltIconContainer';
-import { CountriesList, SearchContainerIcon, ButtonDarkMode } from './index';
+import { GlobalStyles } from '../../../GlobalStyles';
+import { lightTheme, darkTheme } from '../../../Themes';
+import { useDarkMode } from '../../hooks/useDarkMode';
+import { RestartAltIconContainer } from './../RestartAltIconContainer';
+import { CountriesList, SearchContainerIcon, ButtonDarkMode } from '../index';
+import { stylesHeaderComponent } from './stylesHeaderComponent';
 
-//navbar
-const Title = styled.h1`
-  font-size: 1em;
-  @media (min-width: 600px) {
-    font-size: 1.4em;
-  }
-`;
+// styles
+const { HeaderContainer, Title, Button, Paragraph, Header } =
+  stylesHeaderComponent;
 
-const Header = styled.div.attrs({
-  className: 'header',
-})`
-  /* padding: 0.2rem; */
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  width: 100vw;
-  height: 10vh;
-  /* border: solid green; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #fff; */
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 85%;
-  /* border: solid red; */
-`;
-
-/*  */
 const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  /* border: solid red; */
-  /* margin: 1.5rem 0 0 0; */
 `;
 
 const NavegationContainer = styled.div`
@@ -59,7 +31,6 @@ const NavegationContainer = styled.div`
   align-items: flex-start;
   width: 85%;
   height: 17vh;
-  /* border: solid red; */
   @media (min-width: 600px) {
     flex-direction: row;
   }
@@ -69,7 +40,6 @@ const SearchContainer = styled.div.attrs({
   className: 'searchContainer',
 })`
   display: flex;
-  /* border: solid blue; */
   width: 100%;
   height: 6vh;
 
@@ -87,10 +57,8 @@ const SearchInput = styled.input`
   border: 0;
   width: 100%;
   cursor: pointer;
-  /* border: solid green; */
   ::placeholder {
     padding-left: 1rem;
-    /* color: #7b7b7b; */
   }
 `;
 
@@ -114,7 +82,6 @@ const ContainerSelect = styled.div.attrs({
 `;
 
 const Select = styled.select`
-  /* border: solid red; */
   height: 100%;
   outline: none;
   border: 0;
@@ -124,8 +91,6 @@ const Select = styled.select`
   width: 100%;
   outline: 0;
   border: 0;
-  /* color: #7b7b7b; */
-  /* font-size: 1em; */
   position: relative;
   transition: all 0.25s ease;
 `;
@@ -133,20 +98,15 @@ const Select = styled.select`
 const Option = styled.option.attrs({
   className: 'option',
 })`
-  /* border: solid green; */
-  /* color: #7b7b7b; */
-  /* padding: 1rem; */
   outline: none;
   border: transparent;
-  /* font-size: 1rem; */
 `;
 
 const FouterBounce = styled.h5`
   padding: 1rem;
 `;
-// #############
 
-export const CountryList = ({ continent, setContinent }) => {
+export const Countries = ({ continent, setContinent }) => {
   const [search, setSearch] = useState('');
   const { countries, isLoading, searchFilters } = useFetchCountris(continent);
 

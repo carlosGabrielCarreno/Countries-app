@@ -186,6 +186,11 @@ const ButtonBorder = styled(Link).attrs({
   border: 0;
   text-align: center;
   height: 2rem;
+  transition: all 300ms;
+  position: relative;
+  :hover {
+    transform: scale(1.15);
+  }
   @media (min-width: 800px) {
     margin: 0.5rem;
     padding: 0.2rem;

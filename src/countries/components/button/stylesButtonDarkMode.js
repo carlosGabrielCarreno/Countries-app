@@ -9,7 +9,6 @@ const Button = styled.button`
   justify-content: space-between;
   width: 6.5rem;
   cursor: pointer;
-  /* border: solid red; */
   @media (min-width: 400px) {
     width: 7rem;
   }

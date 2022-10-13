@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { CountryList } from '../components';
+import { Countries } from '../components';
 
 export const CountriesPage = () => {
   const [continent, setContinent] = useState('All');
   return (
     <>
-      <CountryList continent={continent} setContinent={setContinent} />
+      <Countries continent={continent} setContinent={setContinent} />
     </>
   );
 };

@@ -16,6 +16,11 @@ const Button = styled.button.attrs({
   align-items: center;
   font-weight: 300;
   cursor: pointer;
+  transition: all 300ms;
+  position: relative;
+  :hover {
+    transform: scale(1.15);
+  }
 `;
 
 export const stylesButtonDetailPage = {
