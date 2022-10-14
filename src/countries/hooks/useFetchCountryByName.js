@@ -3,12 +3,12 @@ import { getCountryByName } from '../helpers';
 
 export const useFetchCountryByName = (name) => {
   const [countryDetail, setCountryDetail] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingDetail, setIsLoadingDetail] = useState(true);
 
   const getCountryDetail = async () => {
     const country = await getCountryByName(name);
     setCountryDetail(country);
-    setIsLoading(false);
+    setIsLoadingDetail(false);
   };
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const useFetchCountryByName = (name) => {
   }, [name]);
   return {
     countryDetail,
-    isLoading,
-    setIsLoading,
+    isLoading: isLoadingDetail,
+    setIsLoading: setIsLoadingDetail,
   };
 };
