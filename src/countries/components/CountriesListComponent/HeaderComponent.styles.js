@@ -25,28 +25,4 @@ const HeaderContainer = styled.div`
   width: 85%;
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: 0;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 6.5rem;
-  cursor: pointer;
-  @media (min-width: 400px) {
-    width: 7rem;
-  }
-`;
-
-const Paragraph = styled.p`
-  font-weight: 300;
-`;
-
-export const stylesHeaderComponent = {
-  Title,
-  Header,
-  HeaderContainer,
-  Button,
-  Paragraph,
-};
+export { Title, Header, HeaderContainer };

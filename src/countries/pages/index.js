@@ -1,2 +1,2 @@
 export * from './CountriesPage';
-export * from './CountryPage';
+export * from './detailCountry/DetailCountry';

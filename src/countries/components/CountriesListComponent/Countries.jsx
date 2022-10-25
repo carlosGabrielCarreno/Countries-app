@@ -7,11 +7,12 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../../../GlobalStyles';
 import { lightTheme, darkTheme } from '../../../Themes';
 import { useDarkMode } from '../../hooks/useDarkMode';
-import { RestartAltIconContainer } from './../RestartAltIconContainer';
+import { RestartAltIconContainer } from '../load/RestartAltIconContainer';
 import { CountriesList, SearchContainerIcon, ButtonDarkMode } from '../index';
-import { stylesHeaderComponent } from './stylesHeaderComponent';
 
 // styles
+import { HeaderContainer, Title, Header } from './HeaderComponent.styles';
+
 import {
   ContainerSelect,
   FouterBounce,
@@ -21,10 +22,7 @@ import {
   SearchContainer,
   SearchInput,
   Select,
-} from './stylesCountriesComponent';
-
-const { HeaderContainer, Title, Button, Paragraph, Header } =
-  stylesHeaderComponent;
+} from './Countries.styled';
 
 export const Countries = ({ continent, setContinent }) => {
   const [search, setSearch] = useState('');

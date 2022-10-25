@@ -47,7 +47,6 @@ export const CountryName = styled.h2`
 `;
 
 export const CountryData = styled.h3`
-  /* border: solid red; */
   margin: 0.2rem 0;
   font-weight: 600;
 `;

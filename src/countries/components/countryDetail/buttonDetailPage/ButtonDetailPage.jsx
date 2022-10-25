@@ -1,8 +1,7 @@
-import { stylesButtonDetailPage } from './stylesButtonDetailPage';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import HomeIcon from '@mui/icons-material/Home';
 /* styles */
-const { Button } = stylesButtonDetailPage;
+import { Button } from './ButtonDetailPage.styled';
 
 export const ButtonDetailPage = ({ onNavigate, theme, name }) => {
   return (

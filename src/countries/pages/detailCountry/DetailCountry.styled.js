@@ -201,7 +201,21 @@ const ButtonBorder = styled(Link).attrs({
   }
 `;
 
-const countryPage = {
+export const TitleName = styled.h1`
+  grid-area: area1;
+  font-size: 2.6rem;
+
+  @media (min-width: 800px) {
+    margin: 0;
+    font-size: 2rem;
+  }
+  @media (min-width: 1000px) {
+    width: 100%;
+    margin: 0;
+  }
+`;
+
+export {
   CountryDetailContainer,
   ButtonsContainer,
   DetailContainer,
@@ -216,5 +230,3 @@ const countryPage = {
   ContainerBordersButtons,
   ButtonBorder,
 };
-
-export default countryPage;

@@ -1,8 +1,7 @@
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
-import { stylesSearchContainerIcon } from './stylesSearchContainerIcon';
 
 // styles
-const { SearchIcon } = stylesSearchContainerIcon;
+import { SearchIcon } from './SearchContainerIcon.styled';
 
 export const SearchContainerIcon = ({ theme }) => {
   return (

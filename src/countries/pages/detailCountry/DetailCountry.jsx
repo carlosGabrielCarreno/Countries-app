@@ -1,18 +1,11 @@
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { useFetchCountryByName } from '../hooks/useFetchCountryByName';
-import styled from 'styled-components';
-import { useDarkMode } from '../hooks/useDarkMode';
-/*  */
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from '../../GlobalStyles';
-import { darkTheme, lightTheme } from '../../Themes';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useFetchCountryByName, useDarkMode } from '../../hooks';
+import { RestartAltIconContainer } from '../../components';
+import { GlobalStyles } from '../../../GlobalStyles';
+import { darkTheme, lightTheme } from '../../../Themes';
 
-/*  */
-import countryPage from '../styled/CountryPage';
-import { ButtonDetailPage } from '../components';
-/*  */
-const {
+import {
   CountryDetailContainer,
   ButtonsContainer,
   DetailContainer,
@@ -26,27 +19,14 @@ const {
   BorderTitle,
   ContainerBordersButtons,
   ButtonBorder,
-} = countryPage;
+  TitleName,
+} from './DetailCountry.styled';
+import { ButtonDetailPage } from '../../components';
 
-const TitleName = styled.h1`
-  grid-area: area1;
-  font-size: 2.6rem;
-
-  @media (min-width: 800px) {
-    margin: 0;
-    font-size: 2rem;
-  }
-  @media (min-width: 1000px) {
-    width: 100%;
-    margin: 0;
-    /* font-size: 1.9rem; */
-  }
-`;
-
-export const CountryPage = () => {
+export const DetailCountry = () => {
   const navigate = useNavigate();
   const { name } = useParams();
-  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const [theme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const { countryDetail, isLoading, setIsLoading } =
@@ -71,10 +51,7 @@ export const CountryPage = () => {
         <GlobalStyles />
         <CountryDetailContainer>
           {isLoading ? (
-            <RestartAltIcon
-              className="animate__animated animate__rotateOut"
-              fontSize="large" /* color="disabled" */
-            />
+            <RestartAltIconContainer />
           ) : (
             <>
               <ButtonsContainer>
@@ -90,13 +67,11 @@ export const CountryPage = () => {
                 />
               </ButtonsContainer>
               <DetailContainer>
-                {/* <ContainerImg> */}
                 <Img
                   src={countryDetail.flag}
                   alt={countryDetail.name}
                   width="400"
                 />
-                {/* </ContainerImg> */}
                 <DataContainer>
                   <TitleName>{countryDetail.name}</TitleName>
                   <RawData1>

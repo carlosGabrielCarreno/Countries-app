@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button.attrs({
+export const Button = styled.button.attrs({
   className: 'button',
 })`
   width: 25%;
@@ -22,7 +22,3 @@ const Button = styled.button.attrs({
     transform: scale(1.15);
   }
 `;
-
-export const stylesButtonDetailPage = {
-  Button,
-};

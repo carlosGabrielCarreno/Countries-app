@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { CountriesPage, CountryPage } from '../pages';
+import { CountriesPage, DetailCountry } from '../pages';
 
 export const CountriesRoutes = () => {
   return (
@@ -8,7 +8,7 @@ export const CountriesRoutes = () => {
       <Routes>
         <Route path="countries" element={<CountriesPage />} />
 
-        <Route path="country/:name" element={<CountryPage />} />
+        <Route path="country/:name" element={<DetailCountry />} />
 
         <Route path="/" element={<Navigate to="/countries" />} />
       </Routes>

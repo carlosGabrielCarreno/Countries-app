@@ -54,7 +54,6 @@ const ContainerSelect = styled.div.attrs({
   width: 55%;
   background-color: #fff;
   height: 6vh;
-
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   padding-right: 1rem;
   @media (min-width: 600px) {
