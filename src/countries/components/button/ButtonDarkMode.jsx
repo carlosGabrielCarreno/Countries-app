@@ -1,6 +1,6 @@
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { useState } from 'react';
-import { stylesButtonDarkMode } from './stylesButtonDarkMode';
+import { stylesButtonDarkMode } from './ButtonDarkMode.styled';
 
 // styles
 const { Button, Paragraph } = stylesButtonDarkMode;

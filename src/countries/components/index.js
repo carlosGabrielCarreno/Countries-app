@@ -1,4 +1,4 @@
-export * from './CountryCard';
+export * from './CountryCard/CountryCard';
 export * from './CountriesListComponent/Countries';
 export * from './RestartAltIconContainer';
 export * from './countryDetail';

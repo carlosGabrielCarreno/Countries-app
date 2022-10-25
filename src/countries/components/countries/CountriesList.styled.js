@@ -6,8 +6,6 @@ const ContainerCountries = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  /* margin-bottom: 1rem; */
-  /* border: solid red; */
   @media (min-width: 500px) {
     display: grid;
     grid-template-columns: 1fr 1fr;

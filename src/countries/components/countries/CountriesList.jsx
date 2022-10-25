@@ -1,5 +1,5 @@
-import { CountryCard } from '../CountryCard';
-import { stylesCountriesList } from './stylesCountriesList';
+import { CountryCard } from '../index';
+import { stylesCountriesList } from './CountriesList.styled';
 
 //styles
 const { ContainerCountries } = stylesCountriesList;
