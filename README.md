@@ -34,7 +34,7 @@
 
 ![Design preview](./src/assets/capture-countries-app9.png)
 
-### This Paises app was a [Frontend Mentor](https://www.frontendmentor.io/challenges) challenge. It was a nice experience.
+### This Countries app was a [Frontend Mentor](https://www.frontendmentor.io/challenges) challenge. It was a nice experience.
 
 #
 
