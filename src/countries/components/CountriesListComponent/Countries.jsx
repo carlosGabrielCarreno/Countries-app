@@ -91,7 +91,7 @@ export const Countries = ({ continent, setContinent }) => {
               <CountriesList countries={countries} />
             </>
           )}
-          <FouterBounce>Created with very much love ❣️</FouterBounce>
+          <FouterBounce>Created by Gabriel Carreño 🤙</FouterBounce>
         </Main>
       </>
     </ThemeProvider>
