@@ -1,7 +1,5 @@
 ## 🌍 Countries App
 
-#
-
 ![Design preview](./src/assets/capture-countries-app1.png)
 
 #
