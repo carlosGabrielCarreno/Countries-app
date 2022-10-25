@@ -67,13 +67,13 @@ const ContainerSelect = styled.div.attrs({
 
 const Select = styled.select`
   height: 100%;
-  outline: none;
   border: 0;
   cursor: pointer;
+  outline: none;
   appearance: none;
+  outline: 0;
   padding-left: 1rem;
   width: 100%;
-  outline: 0;
   border: 0;
   position: relative;
   transition: all 0.25s ease;
