@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const CountryDetailContainer = styled.div.attrs({
-  className: 'animate__animated animate__pulse',
+  className: "animate__animated animate__pulse",
 })`
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const DetailContainer = styled.div.attrs({
-  className: 'animate__animated animate__fadeIn',
+  className: "animate__animated animate__fadeIn",
 })`
   width: 100%;
   height: 100%;
@@ -61,9 +61,9 @@ const DataContainer = styled.div`
     grid-template-columns: 50px 50px 50px;
     grid-template-rows: 50px 150px 50px;
     grid-template-areas:
-      'area1  area1 area1'
-      'area2  . area3'
-      'area4 area4 area4';
+      "area1  area1 area1"
+      "area2  . area3"
+      "area4 area4 area4";
     height: 100%;
   }
 `;
@@ -81,7 +81,8 @@ const RawData1 = styled.div`
   }
   @media (min-width: 1000px) {
     grid-area: area2;
-    overflow: hidden;
+
+    /* overflow: hidden; */
     height: 40vh;
     width: 100vw;
     margin: 0;
@@ -137,6 +138,9 @@ const Paragraph = styled.p`
   padding: 0.3rem 0;
   @media (min-width: 1000px) {
     font-size: 0.9rem;
+    overflow-wrap: break-word;
+    border: solid red;
+    height: 15%;
   }
 `;
 
@@ -172,7 +176,7 @@ const ContainerBordersButtons = styled.div`
 `;
 
 const ButtonBorder = styled(Link).attrs({
-  className: 'buttonBorder',
+  className: "buttonBorder",
 })`
   outline: none;
   background-color: #fff;
@@ -204,13 +208,13 @@ const ButtonBorder = styled(Link).attrs({
 export const TitleName = styled.h1`
   grid-area: area1;
   font-size: 2.6rem;
-
   @media (min-width: 800px) {
     margin: 0;
     font-size: 2rem;
   }
   @media (min-width: 1000px) {
-    width: 100%;
+    width: 37vw;
+    overflow-wrap: break-word;
     margin: 0;
   }
 `;
