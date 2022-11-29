@@ -133,6 +133,8 @@ const RawData3 = styled.div`
 const Paragraph = styled.p`
   font-weight: 600;
   padding: 0.3rem 0;
+  width: 90%;
+  height: 100%;
   @media (min-width: 1000px) {
     font-size: 0.9rem;
     overflow-wrap: break-word;
@@ -142,9 +144,11 @@ const Paragraph = styled.p`
 
 const Text = styled.span`
   font-weight: 300;
-  margin: 0 auto;
-  display: block;
-  /* overflow: auto; */
+
+  @media (min-width: 1000px) {
+    margin: 0 auto;
+    display: block;
+  }
 `;
 
 const BorderTitle = styled.h3`
@@ -153,6 +157,13 @@ const BorderTitle = styled.h3`
     display: flex;
     margin: 0 0 0.3rem 0;
     text-align: center;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 800px) {
+    display: flex;
+    margin: 0 0 0.3rem 0;
+    text-align: center;
+    margin-top: 0;
   }
 `;
 
