@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const CountryDetailContainer = styled.div.attrs({
-  className: "animate__animated animate__pulse",
+  className: 'animate__animated animate__pulse',
 })`
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const DetailContainer = styled.div.attrs({
-  className: "animate__animated animate__fadeIn",
+  className: 'animate__animated animate__fadeIn',
 })`
   width: 100%;
   height: 100%;
@@ -29,7 +29,7 @@ const DetailContainer = styled.div.attrs({
   @media (min-width: 800px) {
     display: flex;
     align-items: flex-start;
-    gap: 5rem;
+    gap: 8rem;
     height: 80vh;
   }
 `;
@@ -39,12 +39,12 @@ const Img = styled.img`
   height: 30%;
 
   @media (min-width: 800px) {
-    width: 420px;
+    width: 21.875rem;
     height: 45%;
   }
   @media (min-width: 1000px) {
-    width: 50%;
-    height: 50%;
+    /*   width: 50%;
+    height: 50%; */
   }
 `;
 
@@ -58,12 +58,12 @@ const DataContainer = styled.div`
   @media (min-width: 1000px) {
     width: 100%;
     display: grid;
-    grid-template-columns: 50px 50px 50px;
-    grid-template-rows: 50px 150px 50px;
+    grid-template-columns: 3.125rem 3.125rem 3.125rem;
+    grid-template-rows: 3.125rem 17.313rem 3.125rem;
     grid-template-areas:
-      "area1  area1 area1"
-      "area2  . area3"
-      "area4 area4 area4";
+      'area1  area1 area1'
+      'area2  . area3'
+      'area4 area4 area4';
     height: 100%;
   }
 `;
@@ -73,16 +73,13 @@ const RawData1 = styled.div`
   margin: 1.5rem 0;
   @media (min-width: 800px) {
     font-size: 1rem;
-    height: 23vh;
-    width: 100vw;
+    width: 90%;
     display: flex;
     flex-direction: column;
     margin: 0;
   }
   @media (min-width: 1000px) {
     grid-area: area2;
-
-    /* overflow: hidden; */
     height: 40vh;
     width: 100vw;
     margin: 0;
@@ -139,8 +136,8 @@ const Paragraph = styled.p`
   @media (min-width: 1000px) {
     font-size: 0.9rem;
     overflow-wrap: break-word;
-    border: solid red;
-    height: 15%;
+    /* border: solid yellowgreen; */
+    height: 20%;
   }
 `;
 
@@ -176,7 +173,7 @@ const ContainerBordersButtons = styled.div`
 `;
 
 const ButtonBorder = styled(Link).attrs({
-  className: "buttonBorder",
+  className: 'buttonBorder',
 })`
   outline: none;
   background-color: #fff;
