@@ -39,15 +39,11 @@ const DetailContainer = styled.div.attrs({
 
 const Img = styled.img`
   width: 100%;
-  height: 30%;
+  height: 50%;
 
   @media (min-width: 800px) {
     width: 21.875rem;
     height: 45%;
-  }
-  @media (min-width: 1000px) {
-    /*   width: 50%;
-    height: 50%; */
   }
 `;
 
