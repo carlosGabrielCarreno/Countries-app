@@ -136,13 +136,15 @@ const Paragraph = styled.p`
   @media (min-width: 1000px) {
     font-size: 0.9rem;
     overflow-wrap: break-word;
-    /* border: solid yellowgreen; */
     height: 20%;
   }
 `;
 
 const Text = styled.span`
   font-weight: 300;
+  margin: 0 auto;
+  display: block;
+  /* overflow: auto; */
 `;
 
 const BorderTitle = styled.h3`
