@@ -29,8 +29,11 @@ const DetailContainer = styled.div.attrs({
   @media (min-width: 800px) {
     display: flex;
     align-items: flex-start;
-    gap: 8rem;
+    gap: 5rem;
     height: 80vh;
+  }
+  @media (min-width: 1000px) {
+    gap: 8rem;
   }
 `;
 
@@ -177,7 +180,6 @@ const ContainerBordersButtons = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    height: 50%;
   }
   @media (min-width: 1000px) {
     height: 100%;
