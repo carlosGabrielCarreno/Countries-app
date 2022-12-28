@@ -40,7 +40,7 @@
 
 ### Technologies used in the project: _React JS_, _Styled-Component_,_Git_ and _Netlify_ for deployment.
 
-- [LinkedIn](www.linkedin.com/in/carlosgabrielcarreno)
+- [LinkedIn](https://www.linkedin.com/in/carlosgabrielcarreno/)
 
 ## See live example:
 
